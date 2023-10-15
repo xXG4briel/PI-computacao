@@ -1,17 +1,63 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Conversor
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div style="max-width: 420px;margin: 0 auto;">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-input labelPlacement="floating" fill="outline" type="text" label="Entrada" [(ngModel)]="entrada"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          <ion-select (ionChange)="limpar()" [value]="10" [(ngModel)]="valorDe">
+            <ion-select-option *ngFor="let de of tipos " [value]="de.base">{{ de.label }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col size="6">
+          <ion-select (ionChange)="limpar()" [value]="2" [(ngModel)]="valorPara">
+            <ion-select-option *ngFor="let para of tipos " [value]="para.base">{{ para.label }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button (click)="converter()" expand="block">
+            <ion-icon slot="start" name="add"></ion-icon>
+            Converter
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-input labelPlacement="floating" fill="outline" label="Resultado" type="text" style="pointer-events: none;" [(ngModel)]="resultado"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="mostraConta">
+        <ion-col size="12" *ngIf="valorDe !== 10">
+          <ion-textarea [autoGrow]="true" labelPlacement="floating" fill="outline" label="Conversão p/ Decimal" type="text" style="pointer-events: none;" [(ngModel)]="conta"></ion-textarea>
+        </ion-col>
+        <ion-col size="12" *ngIf="valorPara !== 10 && resultado">
+          <ion-label>Conversão p/ {{ nomeBase[valorPara] }}</ion-label>
+          <ul>
+            <li *ngFor="let c of conversao">{{ c }}</li>
+          </ul>
+          <p>{{ decimal }} em Decimal é igual a <strong>{{ resultado.toUpperCase() }}</strong> em {{ nomeBase[valorPara] }}</p>
+          <ng-container *ngIf="valorDe !== 10">
+            <span>Ou</span>
+            <p>{{ entrada }} em {{nomeBase[valorDe]}} é igual a <strong>{{ resultado.toUpperCase() }}</strong> em {{ nomeBase[valorPara] }}</p>
+          </ng-container>
+        </ion-col>
+        <ion-col size="12" *ngIf="valorPara === 10 && resultado">
+          <p>{{ entrada }} em {{nomeBase[valorDe]}} é igual a <strong>{{ resultado.toUpperCase() }}</strong> em {{ nomeBase[valorPara] }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
