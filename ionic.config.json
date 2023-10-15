@@ -1,0 +1,7 @@
+{
+  "name": "electro-kids",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
