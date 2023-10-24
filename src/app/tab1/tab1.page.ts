@@ -56,6 +56,31 @@ export class Tab1Page implements OnInit {
   conta: string = '';
   conversao: string[] = [];
 
+  links = {
+    '10': {
+      '2': 'https://www.youtube.com/embed/mttrG_kbHN4?si=JHp4rXJdKxjNKrDG',
+      '8': 'https://www.youtube.com/embed/3GIAYYCfVPc?si=_-us9Qwgv8E1dcmE',
+      '16': 'https://youtu.be/w1sczLF47KE?si=PGZEi3UvAM7zTwFx',
+    },
+    '2': {
+      '10': 'https://youtu.be/zToihF2FE9I?si=crq-xUA3NocfkJrj',
+      '8': 'https://youtu.be/U4MQyxIDfhE?si=Lm6e3fGhZUyTuQSN',
+      '16': 'https://youtu.be/u2z-iCyLzm4?si=TnBqPCudUv2HEZbh',
+    },
+    '8': {
+      '2': 'https://youtu.be/-qRNJt8Nj5c?si=Tr0jRIGz9_DFkN_u',
+      '10': 'https://youtu.be/xfI1rs0RWw0?si=ZGByqgYq8xn5jTh4',
+      '16': 'https://youtu.be/BLMTW2MTiD4?si=VoV9XqH-4It_YILM',
+    },
+    '16': {
+      '2': 'https://youtu.be/Vctnbk0RWVY?si=8f8oFGGOEmbdp2Qc',
+      '8': 'https://youtu.be/BLMTW2MTiD4?si=VoV9XqH-4It_YILM',
+      '10': 'https://youtu.be/Vctnbk0RWVY?si=8f8oFGGOEmbdp2Qc',
+    },
+  }
+
+  video = `<iframe width="560" height="315" src="https://www.youtube.com/embed/3GIAYYCfVPc?si=_-us9Qwgv8E1dcmE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+  src = 'https://www.youtube.com/embed/3GIAYYCfVPc?si=_-us9Qwgv8E1dcmE'
   constructor(
   ) {
   }

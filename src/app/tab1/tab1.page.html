@@ -1,8 +1,11 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Conversor
-    </ion-title>
+  <ion-toolbar color="danger">
+    <div class="header-top">
+      <ion-label color="danger">
+        Electro
+      </ion-label>
+      <img src="/assets/images/kids.png" />
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -16,12 +19,12 @@
       </ion-row>
       <ion-row>
         <ion-col size="6">
-          <ion-select (ionChange)="limpar()" [value]="10" [(ngModel)]="valorDe">
+          <ion-select (ionChange)="limpar()" fill="outline" [value]="10" [(ngModel)]="valorDe">
             <ion-select-option *ngFor="let de of tipos " [value]="de.base">{{ de.label }}</ion-select-option>
           </ion-select>
         </ion-col>
         <ion-col size="6">
-          <ion-select (ionChange)="limpar()" [value]="2" [(ngModel)]="valorPara">
+          <ion-select (ionChange)="limpar()" fill="outline" [value]="2" [(ngModel)]="valorPara">
             <ion-select-option *ngFor="let para of tipos " [value]="para.base">{{ para.label }}</ion-select-option>
           </ion-select>
         </ion-col>

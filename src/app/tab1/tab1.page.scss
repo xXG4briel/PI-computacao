@@ -1,0 +1,18 @@
+.header-top {
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 8px auto;
+  width: fit-content;
+  background: white;
+  ion-label {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  img {
+    width: 100px;
+  }
+}
