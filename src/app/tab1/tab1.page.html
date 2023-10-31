@@ -11,12 +11,7 @@
 
 <ion-content [fullscreen]="true">
   <div style="max-width: 420px;margin: 0 auto;">
-    <ion-grid>
-      <ion-row>
-        <ion-col size="12">
-          <ion-input labelPlacement="floating" fill="outline" type="text" label="Entrada" [(ngModel)]="entrada"></ion-input>
-        </ion-col>
-      </ion-row>
+    <ion-grid class="ion-margin-top">
       <ion-row>
         <ion-col size="6">
           <ion-select (ionChange)="limpar()" fill="outline" [value]="10" [(ngModel)]="valorDe">
@@ -27,6 +22,11 @@
           <ion-select (ionChange)="limpar()" fill="outline" [value]="2" [(ngModel)]="valorPara">
             <ion-select-option *ngFor="let para of tipos " [value]="para.base">{{ para.label }}</ion-select-option>
           </ion-select>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-input labelPlacement="floating" fill="outline" type="text" label="Entrada" [(ngModel)]="entrada"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -43,6 +43,16 @@
         </ion-col>
       </ion-row>
       <ion-row *ngIf="mostraConta">
+        <ion-col size="12">
+          <ion-accordion-group>
+            <ion-accordion value="first">
+              <ion-item slot="header" color="light">
+                <ion-label>Passos</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content"><p [innerHTML]="comoConverter[valorDe][valorPara]"></p></div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </ion-col>
         <ion-col size="12" *ngIf="valorDe !== 10">
           <ion-textarea [autoGrow]="true" labelPlacement="floating" fill="outline" label="Conversão p/ Decimal" type="text" style="pointer-events: none;" [(ngModel)]="conta"></ion-textarea>
         </ion-col>
